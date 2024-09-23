@@ -1,0 +1,494 @@
+/* import poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --smooth-white: #ffffffcb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ebebeb;
+    background-color: #181818;
+}
+
+svg {
+    object-fit: cover;
+    fill: white;
+}
+
+h1 {
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 50px;
+}
+
+h2 {
+    color: #181818;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-weight: 500;
+    font-style: italic;
+    position: absolute;
+    z-index: 1;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo-container {
+    color: var(--smooth-white);
+    text-decoration: none;
+}
+
+.logo-container p {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.video-text-container {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.text-content {
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+}
+
+.discover-button {
+    position: absolute;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    border: solid 1px white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.discover-button:hover, .download-button:hover {
+    background-color: white;
+    color: #181818;
+}
+
+.navbar-bg {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    z-index: 10;
+    background-color: #181818;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease; 
+}
+
+.navbar ul li:hover a {
+    transform: translateY(-2px);
+}
+
+.menu, .user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user p {
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.user img {
+    width: 40px;
+}
+
+.video-container {
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video {    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;    
+    object-fit: cover;    
+    transform: translate(-50%, -50%);
+}
+
+.model-container, .tuto-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.infos-container {
+    background-color: #dfdfdf;
+    color: #181818;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.card-image-container {
+    width: 50%;
+    position: relative;
+}
+
+.card-image-container img {
+    width: 100%;
+    position: relative;
+}
+
+.card-image-container svg {
+    fill: rgb(224, 98, 98);
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.card-image-container svg:hover {
+    scale: 1.1;
+}
+
+#wheel-marker {
+    top: 54%;
+    left: 39.8%;
+}
+
+#battery-marker {
+    top: 35%;
+    left: 10.5%;
+}
+
+#weight-marker {
+    top: 13%;
+    left: 48%;
+}
+
+.popup {
+    position: absolute;
+    background-color: #ebebeb;
+    z-index: 1;
+    color: black;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.popup::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.infos-card {
+    width: 350px;
+    height: 250px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sketchfab-embed-wrapper {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.sketchfab-embed-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.model-text {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.model-text img {
+    width: 20rem;
+    margin-bottom: 20px;
+    filter: invert(1);
+}
+
+.model-card {
+    width: 40rem;
+    margin: 10px;
+}
+
+.download-container {
+    width: 40rem;
+    display: flex;
+}
+
+.download-button {
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    border: solid 1px white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    margin: 20px 10px ;
+}
+
+.tuto-container {
+    background-color: #ebebeb;
+    color: #181818;
+    display: flex;
+}
+
+.download-button-coming-soon {
+    background-color: transparent;
+    color: rgb(145, 145, 145);
+    font-size: 15px;
+    border: solid 1px rgb(145, 145, 145);
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    margin: 20px 10px;
+    cursor: default;
+}
+
+@keyframes text-animation {
+    0% {
+        transform: translate(-50%, -50%) rotate(-20deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(20deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-20deg);
+    }
+}
+
+.arrow {
+    position: absolute;
+    bottom: 10%;
+    left: 85%;
+    animation: bounce 2s infinite;
+}
+
+.arrow svg {
+    width: 6em;
+    height: 6em;
+    fill: var(--smooth-white);
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.contact-container {
+    background-color: white;
+    width: 100%;
+    color: #181818;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.contact-container div svg {
+    fill: #181818;
+    width: 200px;
+}
+
+.contact-container a {
+    text-decoration: none;
+    color: #181818;
+}
+
+.contact-container img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.tuto-slide {
+    position: relative; 
+    width: 100%; 
+    height: 100%;
+    overflow: hidden; 
+    will-change: transform;
+    min-width: 100%;
+}
+
+
+@media (max-width: 1400px) {
+    body {
+        font-size: 12px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 20px;
+        position: relative;
+        top: 30px;
+        padding: 0 20px;
+    }
+    .model-container, .tuto-container {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+    .model-text {
+        padding: 50px 0;
+        width: 80%;
+    }
+    .model-text img {
+        width: 200px;
+    }
+    .sketchfab-embed-wrapper {
+        width: 100%;
+    }
+    .model-card {
+        width: 80%;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .infos-card {
+        width: 80%;
+        height: auto;
+        margin: 10px;
+    }
+    .contact-container {
+        padding: 20px;
+        flex-direction: column;
+    }
+    .contact-container div {
+        margin: 10px;
+    }
+
+    .arrow, .menu, .user {
+        display: none;
+    }
+    .navbar {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+    .download-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .download-button, .download-button-coming-soon {
+        margin: 10px;
+        width: 60%;
+    }
+    .download-container a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .tuto-slide {
+        min-height: 300px;
+    }
+    
+
+}
