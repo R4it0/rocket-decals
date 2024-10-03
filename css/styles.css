@@ -1,6 +1,30 @@
 /* import poppins font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+@font-face {
+    font-family: 'aldoth';
+    src: url('/fonts/AldotheApache.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'desirable';
+    src: url('/fonts/DesirableCalligraphy.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#karmine {
+    font-family: 'aldoth';
+    font-size: 60px;
+}
+
+#m8 {
+    font-family: 'desirable';
+    font-size: 40px;
+}
+
 :root {
     --smooth-white: #ffffffcb;
 }
@@ -32,6 +56,7 @@ h1 {
     line-height: 1.2;
     font-size: 50px;
 }
+
 
 .logo-container {
     color: var(--smooth-white);
@@ -286,6 +311,7 @@ video {
 }
 
 .model-card {
+    text-align: justify;
     width: 40rem;
     margin: 10px;
 }
@@ -304,7 +330,7 @@ video {
     padding: 10px 20px;
     transition: all 0.5s ease;
     cursor: pointer;
-    margin: 20px 10px ;
+    margin: 20px 20px 20px 0px ;
 }
 
 .tuto-container {
@@ -322,7 +348,7 @@ video {
     padding: 10px 20px;
     transition: all 0.5s ease;
     cursor: pointer;
-    margin: 20px 10px;
+    margin: 20px 20px 20px 0px ;
     cursor: default;
 }
 
