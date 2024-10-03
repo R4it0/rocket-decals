@@ -3,14 +3,14 @@
 
 @font-face {
     font-family: 'aldoth';
-    src: url('/fonts/AldotheApache.ttf') format('truetype');
+    src: url('../fonts/AldotheApache.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'desirable';
-    src: url('/fonts/DesirableCalligraphy.ttf') format('truetype');
+    src: url('../fonts/DesirableCalligraphy.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
