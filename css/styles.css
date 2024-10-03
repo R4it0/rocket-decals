@@ -33,21 +33,6 @@ h1 {
     font-size: 50px;
 }
 
-h2 {
-    color: #181818;
-    background-color: white;
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 30px;
-    font-weight: 500;
-    font-style: italic;
-    position: absolute;
-    z-index: 1;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .logo-container {
     color: var(--smooth-white);
     text-decoration: none;
@@ -489,6 +474,4 @@ video {
     .tuto-slide {
         min-height: 300px;
     }
-    
-
 }
