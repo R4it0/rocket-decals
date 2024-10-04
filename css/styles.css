@@ -135,7 +135,6 @@ h1 {
 .navbar ul li {
     display: flex;
     align-items: center;
-    margin: 0 10px;
     height: 50px;
     cursor: pointer;
 }
@@ -152,20 +151,68 @@ h1 {
     transform: translateY(-2px);
 }
 
-.menu, .user {
+.menu {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.user p {
-    margin-left: 10px;
-    font-weight: 500;
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-.user img {
-    width: 40px;
+.menu ul li {
+    display: inline-block;
+    position: relative;
 }
+
+.menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.dropdown-content {
+    display: none !important;
+    position: absolute;
+    background-color: #181818;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    list-style-type: none;
+    padding: 0;
+    min-width: 150px;
+    border-radius: 5px;
+}
+
+.dropdown-content li {
+    padding-top: 5px;
+    display: block;
+    width: 100%;
+}
+
+.dropdown-content li:hover {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.dropdown-content li:hover a {
+    color: #181818;
+}
+
+.dropdown-content li a {
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block !important;
+}
+
+.menu ul li.dropdown {
+    position: relative;
+}
+
 
 .video-container {
     width: 100%;
