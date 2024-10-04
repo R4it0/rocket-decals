@@ -380,27 +380,6 @@ video {
     margin: 20px 20px 20px 0px ;
 }
 
-.tuto-container {
-    background-color: #181818;
-    color: white;
-}
-
-.tuto-container h2 {
-    width: 100%;
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 40px;
-    font-size: 30px;
-}
-
-.tuto-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-}
-
 .download-button-coming-soon {
     background-color: transparent;
     color: rgb(145, 145, 145);
@@ -492,15 +471,34 @@ video {
     min-width: 100%;
 }
 
+.tuto-container {
+    background-color: #181818;
+    color: white;
+}
+
+.tuto-container h2 {
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    font-size: 30px;
+}
+
+.tuto-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+
 .tuto-cards {
-    width: 40%;
     background-color: #202020;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     margin: 20px 50px;
     padding: 20px 50px;
 }
