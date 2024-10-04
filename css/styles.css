@@ -500,7 +500,7 @@ video {
     flex-direction: column;
     align-items: center;
     margin: 20px 50px;
-    padding: 20px 50px;
+    padding: 50px;
 }
 
 .tuto-cards p {
