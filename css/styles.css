@@ -591,5 +591,16 @@ video {
     }
     .tuto-cards {
         width: 90%;
+        margin: 20px 0;
+    }
+    .tuto-container {
+        padding: 0 20px;
+    }
+    .tuto-content {
+        display: flex;
+        justify-content: center;
+    }
+    .model-container-2 {
+        flex-direction: column-reverse;
     }
 }
