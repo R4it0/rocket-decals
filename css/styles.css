@@ -131,6 +131,7 @@ h1 {
     align-items: center;
     padding: 20px;
     z-index: 1000;
+    cursor: pointer;
 }
 
 .navbar .logo {
@@ -147,6 +148,7 @@ h1 {
 .navbar ul li {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 50px;
     cursor: pointer;
 }
@@ -167,6 +169,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .menu ul {
@@ -184,6 +187,7 @@ h1 {
     display: block;
     padding: 10px 20px;
     text-decoration: none;
+    height: 100%;
 }
 
 .dropdown-content {
@@ -532,7 +536,36 @@ video {
     margin-top: 20px;
 }
 
+#toggleLangBtn {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: 17.6px;
+    padding: 5px 10px;
+    margin-left: 20px;
+    margin-top: 4px;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+
+#toggleLangBtn:hover {
+    background-color: white;
+    color: #181818;
+    cursor: pointer;
+}
+
 @media (max-width: 1400px) {
+    #karmine {
+        font-size: 30px;
+    }
+    #m8 {
+        font-size: 20px;
+    }
+    #resolve {
+        font-size: 18px;
+    }
     body {
         font-size: 12px;
     }
@@ -543,11 +576,10 @@ video {
         font-size: 20px;
         position: relative;
         top: 30px;
-        padding: 0 20px;
     }
     .model-container, .tuto-container {
         flex-direction: column;
-        height: 100%;
+        height: 180vh;
         width: 100%;
     }
     .model-text {
@@ -559,6 +591,7 @@ video {
     }
     .sketchfab-embed-wrapper {
         width: 100%;
+        height: 50vh;
     }
     .model-card {
         width: 80%;
@@ -578,7 +611,7 @@ video {
         margin: 10px;
     }
 
-    .arrow, .menu, .user {
+    .arrow {
         display: none;
     }
     .navbar {
@@ -614,5 +647,15 @@ video {
     }
     .model-container-2 {
         flex-direction: column-reverse;
+    }
+    .nav-items {
+        display: none !important;
+    }
+    .navbar {
+        display: flex;
+        justify-content: center;
+    }
+    #toggleLangBtn {
+        padding: 5px 0;
     }
 }

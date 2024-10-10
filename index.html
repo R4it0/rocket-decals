@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,146 +9,181 @@
 <body>
     <div class="navbar-bg"></div>
     <div class="navbar">
-        
         <a class="logo-container" href="#video-container">
             <div class="logo">
-                <p>Rocket Decals</h1>
+                <p>Rocket Decals</p>
             </div>
         </a>
         <div class="menu">
             <ul>
-                <li class="dropdown">
-                    <a href="#model-container-karmine">Stickers</a>
+                <li class="dropdown nav-items">
+                    <a href="#model-container-karmine" class="lang" data-lang-fr="Stickers" data-lang-en="Stickers">Stickers</a>
                     <ul class="dropdown-content">
-                        <li><a href="#model-container-karmine">Karmine Corp</a></li>
-                        <li><a href="#model-container-m8">Gentle Mates</a></li>
-                        <li><a href="#model-container-resolve">Resolve</a></li>
+                        <li><a href="#model-container-karmine" class="lang" data-lang-fr="Karmine Corp" data-lang-en="Karmine Corp">Karmine Corp</a></li>
+                        <li><a href="#model-container-m8" class="lang" data-lang-fr="Gentle Mates" data-lang-en="Gentle Mates">Gentle Mates</a></li>
+                        <li><a href="#model-container-resolve" class="lang" data-lang-fr="Resolve" data-lang-en="Resolve">Resolve</a></li>
                     </ul>
                 </li>
-                <li><a href="#tuto-container">Comment les utiliser</a></li>
-                <li><a href="#contact-container">Contact</a></li>
+                <li><a href="#tuto-container" class="lang nav-items" data-lang-fr="Comment les utiliser" data-lang-en="How to use them">Comment les utiliser</a></li>
+                <li><a href="#contact-container" class="lang nav-items" data-lang-fr="Contact" data-lang-en="Contact">Contact</a></li>
+                <li><button id="toggleLangBtn" class="toggle-lang-btn">EN</button></li>
             </ul>
         </div>
     </div>
+
     <div id="video-container" class="video-container">
         <video type="video/mp4" src="video/rl-video.mp4" autoplay loop muted></video>
         <a href="#model-container"><div class="arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg></div></a>
         <div class="video-text-container">
             <div class="text-content">
-                <h1>Rocket Decals</h1>
-                <h1>Téléchargez nos stickers customs !</h1>
+                <h1 class="lang" data-lang-fr="Rocket Decals" data-lang-en="Rocket Decals">Rocket Decals</h1>
+                <h1 class="lang" data-lang-fr="Téléchargez nos stickers customs !" data-lang-en="Download our custom decals!">Téléchargez nos stickers customs !</h1>
                 <a href="#model-container">
-                    <button class="discover-button">Découvrir les stickers</button>
+                    <button class="discover-button lang" data-lang-fr="Découvrir les stickers" data-lang-en="Discover decals">Découvrir les stickers</button>
                 </a>
             </div>
         </div>
     </div>
+
     <div id="model-container-karmine" class="model-container">
         <div class="model-text">       
             <div class="model-card">
-                <h2 id="karmine">Karmine Corp</h2>
+                <h2 id="karmine" class="lang" data-lang-fr="Karmine Corp" data-lang-en="Karmine Corp">Karmine Corp</h2>
             </div>        
-            <div class="model-card">
-                Un sticker réalisé en l'hommage du maillot des Worlds 2024 de la Karmine Corp. Il reprend les codes visuels de celui-ci à travers les couleurs, les motifs et l'esprit de compétition qu'il dégage.            
+            <div class="model-card lang" data-lang-fr="Un sticker réalisé en l'hommage du maillot des Worlds 2024 de la Karmine Corp. Il reprend les codes visuels de celui-ci à travers les couleurs, les motifs et l'esprit de compétition qu'il dégage." data-lang-en="A decal made in tribute to Karmine Corp's 2024 Worlds jersey. It captures its visual codes through colors, patterns, and the spirit of competition.">
+                Un sticker réalisé en l'hommage du maillot des Worlds 2024 de la Karmine Corp.
             </div>
-            <div class="model-card">
+            <div class="model-card lang" data-lang-fr="Prenez part à la compétition en téléchargeant ce sticker via les boutons ci-dessous !" data-lang-en="Join the competition by downloading this decal through the buttons below!">
                 Prenez part à la compétition en téléchargeant ce sticker via les boutons ci-dessous !
             </div>
             <div class="download-container">
                 <a href="decals/karmine/RAITO_KCWORLD_FEN.rar" download>
-                    <button class="download-button">Télécharger pour Fennec</button>
+                    <button class="download-button lang" data-lang-fr="Télécharger pour Fennec" data-lang-en="Download for Fennec">Télécharger pour Fennec</button>
                 </a>
                 <a href="decals/karmine/RAITO_KCWORLD_OCT.rar" download>
-                    <button class="download-button">Télécharger pour Octane</button>
+                    <button class="download-button lang" data-lang-fr="Télécharger pour Octane" data-lang-en="Download for Octane">Télécharger pour Octane</button>
                 </a>
                 <a href="decals/karmine/RAITO_KCWORLD_DOM.rar" download>
-                    <button class="download-button">Télécharger pour Dominus</button>
+                    <button class="download-button lang" data-lang-fr="Télécharger pour Dominus" data-lang-en="Download for Dominus">Télécharger pour Dominus</button>
                 </a>
             </div>           
         </div>
-        <div class="sketchfab-embed-wrapper"> <iframe title="SKETCHFAB_KCWORLD_RAITO" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/15e9d5777c534f99959b9891a086ba40/embed?autostart=1"> </iframe></div>
+        <div class="sketchfab-embed-wrapper">
+            <iframe title="SKETCHFAB_KCWORLD_RAITO" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/15e9d5777c534f99959b9891a086ba40/embed?autostart=1"></iframe>
+        </div>
     </div>
+
+    
+
     <div id="model-container-m8" class="model-container model-container-2">
         <!--<div class="sketchfab-embed-wrapper"> <h2>Coming soon</h2> </div>-->   
-        <div class="sketchfab-embed-wrapper"> <iframe title="SKETCHFAB_M8_RAITO" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/bd73dd349f5a4c4c9be9134f50a08a9a/embed?autostart=1"> </iframe> </div>     
+        <div class="sketchfab-embed-wrapper"> 
+            <iframe title="SKETCHFAB_M8_RAITO" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/bd73dd349f5a4c4c9be9134f50a08a9a/embed?autostart=1"> 
+            </iframe> 
+        </div>     
         <div class="model-text">       
             <div class="model-card">
-                <h2 id="m8">Gentle Mates</h2>
+                <h2 id="m8" class="lang" data-lang-fr="Gentle Mates" data-lang-en="Gentle Mates">Gentle Mates</h2>
             </div>        
-            <div class="model-card">
-                Ce sticker revisite le design du maillot des Worlds 2024 de Gentle Mates. Il s'inspire des couleurs et des motifs emblématiques pour offrir une représentation visuelle qui capture l'essence et l'élégance du maillot.            
+            <div class="model-card lang" data-lang-fr="Ce sticker revisite le design du maillot des Worlds 2024 de Gentle Mates. Il s'inspire des couleurs et des motifs emblématiques pour offrir une représentation visuelle qui capture l'essence et l'élégance du maillot." data-lang-en="This decal revisits the design of Gentle Mates' 2024 Worlds jersey. It is inspired by iconic colors and patterns to offer a visual representation that captures the essence and elegance of the jersey.">
+                Ce sticker revisite le design du maillot des Worlds 2024 de Gentle Mates.
             </div>
-            <div class="model-card">
+            <div class="model-card lang" data-lang-fr="Prenez part à la compétition en téléchargeant ce sticker via les boutons ci-dessous !" data-lang-en="Join the competition by downloading this decal through the buttons below!">
                 Prenez part à la compétition en téléchargeant ce sticker via les boutons ci-dessous !
             </div>
             <div class="download-container">
                 <a href="decals/m8/RAITO_M8WORLD_FEN.rar" download>
-                    <button class="download-button">Télécharger pour Fennec</button>
+                    <button class="download-button lang" data-lang-fr="Télécharger pour Fennec" data-lang-en="Download for Fennec">Télécharger pour Fennec</button>
                 </a>
                 <a href="decals/m8/RAITO_M8WORLD_OCT.rar" download>
-                    <button class="download-button">Télécharger pour Octane</button>
+                    <button class="download-button lang" data-lang-fr="Télécharger pour Octane" data-lang-en="Download for Octane">Télécharger pour Octane</button>
                 </a>
                 <a href="decals/m8/RAITO_M8WORLD_DOM.rar" download>
-                    <button class="download-button">Télécharger pour Dominus</button>
+                    <button class="download-button lang" data-lang-fr="Télécharger pour Dominus" data-lang-en="Download for Dominus">Télécharger pour Dominus</button>
                 </a>
             </div>           
         </div>
     </div>
+    
     <div id="model-container-resolve" class="model-container">
         <div class="model-text">       
             <div class="model-card">
-                <h2 id="resolve">Resolve</h2>
+                <h2 id="resolve" class="lang" data-lang-fr="Resolve" data-lang-en="Resolve">Resolve</h2>
             </div>        
-            <div class="model-card">
-                Un sticker sorti tout droit de l'imagination, spécialement conçu pour les fans de Resolve. Ce design unique mélange créativité et passion, capturant l'essence de l'équipe à travers des motifs audacieux et des couleurs marquantes.             </div>
-            <div class="model-card">
+            <div class="model-card lang" data-lang-fr="Un sticker sorti tout droit de l'imagination, spécialement conçu pour les fans de Resolve. Ce design unique mélange créativité et passion, capturant l'essence de l'équipe à travers des motifs audacieux et des couleurs marquantes." data-lang-en="A decal straight from the imagination, specially designed for Resolve fans. This unique design blends creativity and passion, capturing the team's essence through bold patterns and striking colors.">
+                Un sticker sorti tout droit de l'imagination, spécialement conçu pour les fans de Resolve.
+            </div>
+            <div class="model-card lang" data-lang-fr="Prenez part à la compétition en téléchargeant ce sticker via les boutons ci-dessous !" data-lang-en="Join the competition by downloading this decal through the buttons below!">
                 Prenez part à la compétition en téléchargeant ce sticker via les boutons ci-dessous !
             </div>
             <div class="download-container">
                 <a href="decals/resolve/FEN_RESOLVE_RAITO.rar" download>
-                    <button class="download-button">Télécharger pour Fennec</button>
+                    <button class="download-button lang" data-lang-fr="Télécharger pour Fennec" data-lang-en="Download for Fennec">Télécharger pour Fennec</button>
                 </a>
                 <a href="decals/resolve/OCT_RESOLVE_RAITO.rar" download>
-                    <button class="download-button">Télécharger pour Octane</button>
+                    <button class="download-button lang" data-lang-fr="Télécharger pour Octane" data-lang-en="Download for Octane">Télécharger pour Octane</button>
                 </a>
                 <a href="decals/resolve/DOM_RESOLVE_RAITO.rar" download>
-                    <button class="download-button">Télécharger pour Dominus</button>
+                    <button class="download-button lang" data-lang-fr="Télécharger pour Dominus" data-lang-en="Download for Dominus">Télécharger pour Dominus</button>
                 </a>
             </div>           
         </div>
-        <div class="sketchfab-embed-wrapper"> <iframe title="SKETCHFAB_RESOLVE_RAITO" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/74c4d1bf4b084f44a98054dc7dede008/embed?autostart=1"> </iframe></div>    </div>
-    <div id="tuto-container" class="tuto-container">
-        <h2>Comment utiliser nos stickers</h2>
-        <!--<div class="tuto-slide">
-            <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                src="https://www.canva.com/design/DAGRkyWaqPM/ryLvRdAdKHkhnzYYFhByhg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+        <div class="sketchfab-embed-wrapper"> 
+            <iframe title="SKETCHFAB_RESOLVE_RAITO" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/74c4d1bf4b084f44a98054dc7dede008/embed?autostart=1">
             </iframe>
-            </div>
-            <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGRkyWaqPM&#x2F;ryLvRdAdKHkhnzYYFhByhg&#x2F;view?utm_content=DAGRkyWaqPM&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">        -->  
+        </div>    
+    </div>
+    
+    <div id="tuto-container" class="tuto-container">
+        <h2 class="lang" data-lang-fr="Comment utiliser nos stickers" data-lang-en="How to use our decals">Comment utiliser nos stickers</h2>
+        
         <div class="tuto-content">
             <div class="tuto-cards">
-                <h3>Étape 1</h3>
-                <p>Ouvrir BackkesMod et Rocket League, puis installer AlphaConsole via le lien suivant : <a target="_blank" href="https://bakkesplugins.com/plugins/view/108">AlphaConsole</a>.</p>
+                <h3 class="lang" data-lang-fr="Étape 1" data-lang-en="Step 1">Étape 1</h3>
+                <p class="lang" data-lang-fr="Ouvrir BackkesMod et Rocket League, puis installer AlphaConsole via le lien suivant :"
+                    data-lang-en="Open BakkesMod and Rocket League, then install AlphaConsole via the following link:">
+                    Ouvrir BackkesMod et Rocket League, puis installer AlphaConsole via le lien suivant :
+                </p>
+                <a target="_blank" href="https://bakkesplugins.com/plugins/view/108" class="lang" data-lang-fr="AlphaConsole" data-lang-en="AlphaConsole">AlphaConsole</a>
                 <img src="img/tuto/alphaconsole.png" alt="">
             </div>
+    
             <div class="tuto-cards">
-                <h3>Étape 2</h3>
-                <p>Sur la fenêtre de BakkesMod, ouvrir la section “File” puis cliquer sur “open BakkesMod folder”.</p>
+                <h3 class="lang" data-lang-fr="Étape 2" data-lang-en="Step 2">Étape 2</h3>
+                <p class="lang" data-lang-fr="Sur la fenêtre de BakkesMod, ouvrir la section “File” puis cliquer sur “open BakkesMod folder”."
+                    data-lang-en="In the BakkesMod window, open the 'File' section and click on 'open BakkesMod folder'.">
+                    Sur la fenêtre de BakkesMod, ouvrir la section “File” puis cliquer sur “open BakkesMod folder”.
+                </p>
                 <img src="img/tuto/bakkes.png" alt="">
-                <p>Suivre le chemin suivant : data/acplugin/DecalTextures</p>
+                <p class="lang" data-lang-fr="Suivre le chemin suivant : data/acplugin/DecalTextures"
+                    data-lang-en="Follow this path: data/acplugin/DecalTextures">
+                    Suivre le chemin suivant : data/acplugin/DecalTextures
+                </p>
             </div>
+    
             <div class="tuto-cards">
-                <h3>Étape 3</h3>
-                <p>Dans ce dossier, glisser les fichiers du dossier zip et relancer le jeu.</p>
-                <p>Une fois le jeu relancé, presser F5. Une fenêtre va s’ouvrir,  dans l’onglet “cosmetics”, séléctionner le sticker voulu dans la catégorie “Decal Texture Mods”.</p>
+                <h3 class="lang" data-lang-fr="Étape 3" data-lang-en="Step 3">Étape 3</h3>
+                <p class="lang" data-lang-fr="Dans ce dossier, glisser les fichiers du dossier zip et relancer le jeu."
+                    data-lang-en="In this folder, drag the files from the zip folder and restart the game.">
+                    Dans ce dossier, glisser les fichiers du dossier zip et relancer le jeu.
+                </p>
+                <p class="lang" data-lang-fr="Une fois le jeu relancé, presser F5. Une fenêtre va s’ouvrir, dans l’onglet “cosmetics”, sélectionner le sticker voulu dans la catégorie “Decal Texture Mods”."
+                    data-lang-en="Once the game is relaunched, press F5. A window will open, and in the 'cosmetics' tab, select the desired decal in the 'Decal Texture Mods' category.">
+                    Une fois le jeu relancé, presser F5. Une fenêtre va s’ouvrir, dans l’onglet “cosmetics”, sélectionner le sticker voulu dans la catégorie “Decal Texture Mods”.
+                </p>
                 <img src="img/tuto/cosmetics.png" alt="">
             </div>
+    
             <div class="tuto-cards">
-                <h3>Étape 4</h3>
-                <p>Presser F2 et accéder à l’onglet “Items”. Séléctionner le sticker “{nom_voiture} : Complexity (Visiteurs) (2)”.</p>
+                <h3 class="lang" data-lang-fr="Étape 4" data-lang-en="Step 4">Étape 4</h3>
+                <p class="lang" data-lang-fr="Presser F2 et accéder à l’onglet “Items”. Sélectionner le sticker “{nom_voiture} : Complexity (Visiteurs) (2)”."
+                    data-lang-en="Press F2 and go to the 'Items' tab. Select the decal '{car_name}: Complexity (Visitors) (2)'.">
+                    Presser F2 et accéder à l’onglet “Items”. Sélectionner le sticker “{nom_voiture} : Complexity (Visiteurs) (2)”.
+                </p>
                 <img src="img/tuto/items.png" alt="">
             </div>
-        </div>
+        </div>  
+
         <div id="contact-container" class="contact-container">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"></path></svg>                <a target="_blank" href="https://x.com/ErlowDev">@erlowdev</a>
@@ -164,5 +198,6 @@
         </div>
         
     </div>
+    <script src="js/translation.js"></script>
 </body>
 </html>
