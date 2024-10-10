@@ -15,6 +15,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'brutalism';
+    src: url('../fonts/Y2K\ Brutalism\ Typeface.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #karmine {
     font-family: 'aldoth';
     font-size: 60px;
@@ -23,6 +30,11 @@
 #m8 {
     font-family: 'desirable';
     font-size: 40px;
+}
+
+#resolve {
+    font-family: 'brutalism';
+    font-size: 35px;
 }
 
 :root {
