@@ -9,6 +9,13 @@
 }
 
 @font-face {
+    font-family: 'aimeriga';
+    src: url('../fonts/Aimeriga\ Personal\ Use\ Only.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'desirable';
     src: url('../fonts/DesirableCalligraphy.ttf') format('truetype');
     font-weight: normal;
@@ -24,6 +31,11 @@
 
 #karmine {
     font-family: 'aldoth';
+    font-size: 60px;
+}
+
+#karmine-2 {
+    font-family: 'aimeriga';
     font-size: 60px;
 }
 
@@ -557,7 +569,7 @@ video {
 }
 
 @media (max-width: 1400px) {
-    #karmine {
+    #karmine, #karmine-2 {
         font-size: 30px;
     }
     #m8 {
