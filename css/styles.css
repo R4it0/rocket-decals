@@ -34,7 +34,7 @@
     font-size: 60px;
 }
 
-#karmine-2 {
+#karmine-3 {
     font-family: 'aimeriga';
     font-size: 60px;
 }
@@ -68,6 +68,7 @@ body {
     align-items: center;
     color: #ebebeb;
     background-color: #181818;
+    overflow-x: hidden;
 }
 
 svg {
