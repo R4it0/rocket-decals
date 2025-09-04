@@ -29,22 +29,26 @@
     font-style: normal;
 }
 
-#karmine {
+#models-root {
+    width: 100%;
+}
+
+.karmine {
     font-family: 'aldoth';
     font-size: 60px;
 }
 
-#karmine-3 {
+.karmine-baseball {
     font-family: 'aimeriga';
     font-size: 60px;
 }
 
-#m8 {
+.m8 {
     font-family: 'desirable';
     font-size: 40px;
 }
 
-#resolve {
+.resolve {
     font-family: 'brutalism';
     font-size: 35px;
 }
