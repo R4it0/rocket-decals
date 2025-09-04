@@ -206,7 +206,7 @@ window.modelsData = [
   {
     id: "model-container-m8-2024",
     titleClass: "m8",
-    containerVariant: 2,
+    containerVariant: 1,
     imageLeft: true,
     sketchfab: {
       title: "SKETCHFAB_M8_RAITO",
@@ -246,7 +246,7 @@ window.modelsData = [
   {
     id: "model-container-resolve-2024",
     titleClass: "resolve",
-    containerVariant: 1,
+    containerVariant: 2,
     imageLeft: false,
     sketchfab: {
       title: "SKETCHFAB_RESOLVE_RAITO",
