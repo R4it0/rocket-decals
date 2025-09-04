@@ -778,7 +778,7 @@ video {
 
 .tuto-cards {
     background-color: #202020;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
