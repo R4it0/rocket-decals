@@ -93,6 +93,16 @@
 
     modalOverlay.classList.add("open");
     document.body.classList.add("modal-open");
+
+    // Applique la langue courante au contenu nouvellement injecté
+    try {
+      var current = (document.documentElement.getAttribute("lang") || "fr").toLowerCase();
+      if (typeof window.applyLanguageGlobally === "function") {
+        window.applyLanguageGlobally(current);
+      }
+    } catch (e) {
+      // ignore
+    }
   }
 
   modalClose.addEventListener("click", function () {
