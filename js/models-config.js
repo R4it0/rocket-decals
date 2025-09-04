@@ -4,6 +4,7 @@
 window.modelsData = [
   {
     id: "model-container-karmine-2025",
+    new: true,
     titleClass: "karmine",
     containerVariant: 2,
     imageLeft: false,
@@ -166,6 +167,7 @@ window.modelsData = [
   {
     id: "model-container-m8-2025",
     titleClass: "m8",
+    new: true,
     containerVariant: 2,
     imageLeft: false,
     sketchfab: {

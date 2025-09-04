@@ -31,17 +31,27 @@
     return el;
   }
 
-  function renderSection(model) {
-    var containerClasses;
-    if (model.containerVariant === 2 && model.id === "model-container-m8") {
-      containerClasses = "model-container-2";
-    } else if (model.containerVariant === 2) {
-      containerClasses = "model-container model-container-2";
-    } else {
-      containerClasses = "model-container";
-    }
+  // Modal builder
+  var modalOverlay = createElement("div", { class: "modal-overlay", id: "model-modal" }, []);
+  var modalContent = createElement("div", { class: "modal-content" }, []);
+  var modalClose = createElement("button", { class: "modal-close", ariaLabel: "Close" }, ["×"]);
+  modalContent.appendChild(modalClose);
+  modalOverlay.appendChild(modalContent);
+  document.body.appendChild(modalOverlay);
 
-    var container = createElement("div", { id: model.id, class: containerClasses }, []);
+  function openModalFor(model) {
+    // reset content except close button
+    while (modalContent.children.length > 1) modalContent.removeChild(modalContent.lastChild);
+
+    var titleClass = "lang" + (model.titleClass ? (" " + model.titleClass) : "");
+    var titleEl = createElement(
+      "h2",
+      {
+        class: titleClass,
+        dataset: { "lang-fr": model.title.fr, "lang-en": model.title.en }
+      },
+      [model.title.fr]
+    );
 
     var iframe = createElement("iframe", {
       title: model.sketchfab.title,
@@ -52,20 +62,7 @@
       allow: model.sketchfab.allow,
       src: model.sketchfab.src
     });
-    var iframeWrapper = createElement("div", { class: "sketchfab-embed-wrapper" }, [iframe]);
-
-    var titleClass = "lang" + (model.titleClass ? (" " + model.titleClass) : "");
-    var titleEl = createElement(
-      "h2",
-      {
-        id: (model.anchorId || model.id.replace("model-container-", "")),
-        class: titleClass,
-        dataset: { "lang-fr": model.title.fr, "lang-en": model.title.en }
-      },
-      [model.title.fr]
-    );
-
-    var titleCard = createElement("div", { class: "model-card" }, [titleEl]);
+    var iframeWrapper = createElement("div", { class: "sketchfab-embed-wrapper modal-embed" }, [iframe]);
 
     var textBlocks = model.paragraphs.map(function (p) {
       return createElement(
@@ -89,27 +86,114 @@
       })
     );
 
-    var aosDir = model.imageLeft ? "fade-down-right" : "fade-down-left";
-    var textCol = createElement(
-      "div",
-      { class: "model-text", "data-aos": aosDir, "data-aos-duration": "1500" },
-      [titleCard].concat(textBlocks).concat([downloads])
-    );
+    modalContent.appendChild(titleEl);
+    modalContent.appendChild(iframeWrapper);
+    textBlocks.forEach(function (b) { modalContent.appendChild(b); });
+    modalContent.appendChild(downloads);
 
-    // Layout: if imageLeft, text first then iframe; else iframe then text
-    if (model.imageLeft) {
-      container.appendChild(textCol);
-      container.appendChild(iframeWrapper);
-    } else {
-      container.appendChild(iframeWrapper);
-      container.appendChild(textCol);
-    }
-
-    return container;
+    modalOverlay.classList.add("open");
+    document.body.classList.add("modal-open");
   }
 
+  modalClose.addEventListener("click", function () {
+    modalOverlay.classList.remove("open");
+    document.body.classList.remove("modal-open");
+  });
+  modalOverlay.addEventListener("click", function (e) {
+    if (e.target === modalOverlay) {
+      modalOverlay.classList.remove("open");
+      document.body.classList.remove("modal-open");
+    }
+  });
+
+  // Search bar
+  var searchWrapper = createElement("div", { class: "models-search" }, []);
+  var searchInput = createElement("input", {
+    type: "search",
+    class: "models-search-input",
+    ariaLabel: "Search"
+  });
+  // i18n for placeholder
+  searchInput.dataset.placeholderFr = "Rechercher un sticker...";
+  searchInput.dataset.placeholderEn = "Search a sticker...";
+  function setSearchPlaceholderByLang(lang) {
+    if (lang === "en") {
+      searchInput.setAttribute("placeholder", searchInput.dataset.placeholderEn);
+    } else {
+      searchInput.setAttribute("placeholder", searchInput.dataset.placeholderFr);
+    }
+  }
+  var initialLang = (document.documentElement.getAttribute("lang") || "fr").toLowerCase();
+  setSearchPlaceholderByLang(initialLang);
+  var langBtn = document.getElementById("toggleLangBtn");
+  if (langBtn) {
+    langBtn.addEventListener("click", function () {
+      var current = (document.documentElement.getAttribute("lang") || "fr").toLowerCase();
+      var next = current === "fr" ? "en" : "fr";
+      setTimeout(function () { setSearchPlaceholderByLang(next); }, 0);
+    });
+  }
+  searchWrapper.appendChild(searchInput);
+
+  // Cards grid
+  var grid = createElement("div", { class: "cards-grid" }, []);
   window.modelsData.forEach(function (model) {
-    root.appendChild(renderSection(model));
+    var cardEmbed = createElement("iframe", {
+      title: model.sketchfab.title,
+      frameborder: "0",
+      allowfullscreen: "",
+      mozallowfullscreen: "true",
+      webkitallowfullscreen: "true",
+      allow: model.sketchfab.allow,
+      src: model.sketchfab.src
+    });
+    var cardEmbedWrap = createElement("div", { class: "card-embed-wrapper" }, [cardEmbed]);
+    var cardTitle = createElement(
+      "h3",
+      {
+        class: "card-title lang" + (model.titleClass ? (" " + model.titleClass) : ""),
+        dataset: { "lang-fr": model.title.fr, "lang-en": model.title.en }
+      },
+      [model.title.fr]
+    );
+    var openBtn = createElement(
+      "button",
+      { class: "card-open-btn lang", dataset: { "lang-fr": "Voir", "lang-en": "View" } },
+      ["Voir"]
+    );
+    var card = createElement("div", { class: "model-card-tile", id: model.id }, [cardTitle, cardEmbedWrap, openBtn]);
+    if (model.new === true || model.isNew === true) {
+      var badge = createElement(
+        "span",
+        { class: "badge-new lang", dataset: { "lang-fr": "Nouveau", "lang-en": "New" } },
+        ["New"]
+      );
+      card.appendChild(badge);
+    }
+    openBtn.addEventListener("click", function () { openModalFor(model); });
+    card.addEventListener("click", function (e) {
+      if (e.target !== openBtn) openModalFor(model);
+    });
+    grid.appendChild(card);
+  });
+  root.appendChild(searchWrapper);
+  root.appendChild(grid);
+
+  // Search filtering
+  function normalize(str) {
+    return (str || "").toString().toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "");
+  }
+  searchInput.addEventListener("input", function () {
+    var q = normalize(searchInput.value);
+    var children = Array.prototype.slice.call(grid.children);
+    children.forEach(function (card) {
+      var modelId = card.id;
+      var model = window.modelsData.find(function (m) { return m.id === modelId; });
+      if (!model) return;
+      var hay = [model.title.fr, model.title.en, modelId].map(normalize).join(" ");
+      var match = q.length === 0 || hay.indexOf(q) !== -1;
+      card.style.display = match ? "flex" : "none";
+    });
   });
 
   // Build the stickers dropdown menu from config
@@ -130,6 +214,15 @@
       );
       var li = createElement("li", null, [anchor]);
       dropdown.appendChild(li);
+
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        var el = document.getElementById(model.id);
+        if (el && typeof el.scrollIntoView === "function") {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        openModalFor(model);
+      });
     });
   }
 })();
