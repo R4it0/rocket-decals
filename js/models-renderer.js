@@ -200,7 +200,11 @@
       var modelId = card.id;
       var model = window.modelsData.find(function (m) { return m.id === modelId; });
       if (!model) return;
-      var hay = [model.title.fr, model.title.en, modelId].map(normalize).join(" ");
+      var keywords = Array.isArray(model.keywords) ? model.keywords : [];
+      var hay = [model.title.fr, model.title.en, modelId]
+        .concat(keywords)
+        .map(normalize)
+        .join(" ");
       var match = q.length === 0 || hay.indexOf(q) !== -1;
       card.style.display = match ? "flex" : "none";
     });

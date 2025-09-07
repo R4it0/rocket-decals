@@ -127,7 +127,7 @@
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
-.card-title { font-size: 22px; }
+.card-title { font-size: 28px; }
 
 .card-embed-wrapper {
     width: 100%;
@@ -328,9 +328,21 @@ h1 {
     font-weight: 600;
 }
 
+.branding {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
 .logo .small-credits {
     font-size: 12px;
-    text-align: center;
+    text-align: left;
     width: 100%;
 }
 
@@ -404,7 +416,7 @@ h1 {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 90px;
+    height: 110px;
     z-index: 10;
     background-color: #181818;
 }
@@ -976,7 +988,7 @@ video {
     }
     .navbar {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
     }
     .model-content h2 {
         margin-top: 20px;
@@ -1035,6 +1047,9 @@ video {
     .button {
         font-size: 12px;
         padding: 5px 10px;
+    }
+    .branding-text {
+        display: none;
     }
 }
 
