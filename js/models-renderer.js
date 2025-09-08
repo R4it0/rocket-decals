@@ -261,8 +261,8 @@
       createElement("div", { class: "cta-plus" }, ["+"]),
       createElement(
         "div",
-        { class: "cta-text lang", dataset: { "lang-fr": "Commande ton decal via notre serveur Discord", "lang-en": "Order your decal via our Discord server" } },
-        ["Commande ton decal via notre serveur Discord"]
+        { class: "cta-text lang", dataset: { "lang-fr": "Commande ton sticker via notre serveur Discord", "lang-en": "Order your decal via our Discord server" } },
+        ["Commande ton sticker via notre serveur Discord"]
       )
     ]
   );
