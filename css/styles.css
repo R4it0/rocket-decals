@@ -1109,3 +1109,28 @@ video {
     }
 }
 
+/* Empty state */
+.empty-state {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.7);
+    background: #202020;
+    border: 1px dashed rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 0 40px 20px 40px;
+}
+
+.empty-state::before {
+    content: "\26A0"; /* warning symbol */
+    display: inline-block;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+@media (max-width: 1400px) {
+    .empty-state { margin: 0 20px 16px 20px; padding: 12px; }
+}
+

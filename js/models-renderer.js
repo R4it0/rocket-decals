@@ -281,7 +281,20 @@
     ["Aperçu 3D"]
   );
   root.appendChild(title3D);
+
+  // Empty state for 3D grid
+  var empty3D = createElement(
+    "div",
+    {
+      class: "empty-state lang",
+      dataset: { "lang-fr": "Aucun résultat dans Équipes", "lang-en": "No results in Teams" }
+    },
+    ["Aucun résultat dans Équipes"]
+  );
+  empty3D.style.display = "none";
+
   root.appendChild(grid);
+  root.appendChild(empty3D);
 
   var titleImages = createElement(
     "h2",
@@ -293,15 +306,29 @@
     ["Galerie d'images"]
   );
   root.appendChild(titleImages);
+
+  // Empty state for Images grid
+  var emptyIMG = createElement(
+    "div",
+    {
+      class: "empty-state lang",
+      dataset: { "lang-fr": "Aucun résultat dans Clients", "lang-en": "No results in Clients" }
+    },
+    ["Aucun résultat dans Clients"]
+  );
+  emptyIMG.style.display = "none";
+
   root.appendChild(imageGrid);
+  root.appendChild(emptyIMG);
 
   // Search filtering for both datasets independently
   function normalize(str) {
     return (str || "").toString().toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "");
   }
 
-  function filterGrid(gridEl, dataset) {
+  function filterGrid(gridEl, dataset, emptyEl) {
     var children = Array.prototype.slice.call(gridEl.children);
+    var anyVisible = false;
     children.forEach(function (card) {
       var item = dataset.find(function (m) { return m.id === card.id; });
       if (!item) return;
@@ -314,14 +341,16 @@
         .join(" ");
       var match = currentQuery.length === 0 || hay.indexOf(currentQuery) !== -1;
       card.style.display = match ? "flex" : "none";
+      if (match) anyVisible = true;
     });
+    if (emptyEl) emptyEl.style.display = anyVisible ? "none" : "flex";
   }
 
   var currentQuery = "";
   searchInput.addEventListener("input", function () {
     currentQuery = normalize(searchInput.value);
-    filterGrid(grid, window.modelsData);
-    filterGrid(imageGrid, imagesData);
+    filterGrid(grid, window.modelsData, empty3D);
+    filterGrid(imageGrid, imagesData, emptyIMG);
   });
 
   // Build the stickers dropdown menu: only two categories (Equipe/Clients)
