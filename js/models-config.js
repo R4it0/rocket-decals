@@ -3,6 +3,45 @@
 
 window.modelsData = [
   {
+    id: "model-container-m8-worlds-2025",
+    new: true,
+    keywords: ["m8", "gentle mates", "worlds", "2025", "fennec", "octane", "dominus"],
+    sketchfab: {
+      title: "SKETCHFAB_M8_RAITO",
+      src: "https://sketchfab.com/models/c30716f7d239498bb5a062aa40a61e37/embed",
+      allow: "fullscreen; xr-spatial-tracking",
+      autostart: false
+    },
+    title: { fr: "M8 World 2025", en: "M8 World 2025" },
+    paragraphs: [
+      {
+        fr:
+          "Un sticker inspiré du maillot des Worlds 2025 de Gentle Mates sublimé par la victoire au world Fortnite.",
+        en:
+          "A sticker inspired by Gentle Mates' 2025 Worlds jersey, sublimated by the victory at the Fortnite World Cup."
+      },
+      {
+        fr:
+          "Prenez part à la compétition en téléchargeant ce sticker via les boutons ci-dessous !",
+        en: "Join the competition by downloading this decal through the buttons below!"
+      }
+    ],
+    downloads: [
+      {
+        href: "decals/m8-world-2025/RAITO_M8WORLD_FEN_2025.rar",
+        label: { fr: "Télécharger pour Fennec", en: "Download for Fennec" }
+      },
+      {
+        href: "decals/m8-world-2025/RAITO_M8WORLD_OCT_2025.rar",
+        label: { fr: "Télécharger pour Octane", en: "Download for Octane" }
+      },
+      {
+        href: "decals/m8-world-2025/RAITO_M8WORLD_DOM_2025.rar",
+        label: { fr: "Télécharger pour Dominus", en: "Download for Dominus" }
+      }
+    ]
+  },
+  {
     id: "model-container-m8-2025",
     new: true,
     keywords: ["m8", "gentle mates", "next gen", "warzone", "wazakiss", "2025", "fennec", "octane", "dominus"],
