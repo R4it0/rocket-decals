@@ -105,6 +105,38 @@
     }
   }
 
+  // Image-only modal for image cards
+  function openImageModalFor(item) {
+    while (modalContent.children.length > 1) modalContent.removeChild(modalContent.lastChild);
+
+    var titleClass = "lang" + (item.titleClass ? (" " + item.titleClass) : "");
+    var titleEl = createElement(
+      "h2",
+      {
+        class: titleClass,
+        dataset: { "lang-fr": (item.title && item.title.fr) || "", "lang-en": (item.title && item.title.en) || "" }
+      },
+      [item.title && item.title.fr ? item.title.fr : ""]
+    );
+
+    var imgSrc = item.image || item.thumbnail || "img/x.avif";
+    var img = createElement("img", { src: imgSrc, alt: (item.title && item.title.fr) || "" }, []);
+    var imgWrapper = createElement("div", { class: "modal-image" }, [img]);
+
+    modalContent.appendChild(titleEl);
+    modalContent.appendChild(imgWrapper);
+
+    modalOverlay.classList.add("open");
+    document.body.classList.add("modal-open");
+
+    try {
+      var current = (document.documentElement.getAttribute("lang") || "fr").toLowerCase();
+      if (typeof window.applyLanguageGlobally === "function") {
+        window.applyLanguageGlobally(current);
+      }
+    } catch (e) {}
+  }
+
   modalClose.addEventListener("click", function () {
     modalOverlay.classList.remove("open");
     document.body.classList.remove("modal-open");
@@ -145,7 +177,7 @@
   }
   searchWrapper.appendChild(searchInput);
 
-  // Cards grid
+  // Cards grid (Sketchfab)
   var grid = createElement("div", { class: "cards-grid" }, []);
   window.modelsData.forEach(function (model) {
     var cardEmbed = createElement("iframe", {
@@ -186,56 +218,141 @@
     });
     grid.appendChild(card);
   });
+
+  // Second grid (Images only, no modal) from modelsImagesData
+  var imagesData = Array.isArray(window.modelsImagesData) ? window.modelsImagesData : [];
+  var imageGrid = createElement("div", { class: "cards-grid" }, []);
+  imagesData.forEach(function (item) {
+    var imgSrc = item.image || item.thumbnail || "img/x.avif";
+    var img = createElement("img", { src: imgSrc, alt: (item.title && item.title.fr ? item.title.fr : "") + " preview" }, []);
+    var imgWrap = createElement("div", { class: "card-embed-wrapper" }, [img]);
+    var cardTitle = createElement(
+      "h3",
+      {
+        class: "card-title lang" + (item.titleClass ? (" " + item.titleClass) : ""),
+        dataset: { "lang-fr": item.title && item.title.fr ? item.title.fr : "", "lang-en": item.title && item.title.en ? item.title.en : "" }
+      },
+      [item.title && item.title.fr ? item.title.fr : ""]
+    );
+    var card = createElement("div", { class: "model-card-tile", id: item.id }, [cardTitle, imgWrap]);
+    if (item.new === true || item.isNew === true) {
+      var badge2 = createElement(
+        "span",
+        { class: "badge-new lang", dataset: { "lang-fr": "Nouveau", "lang-en": "New" } },
+        ["New"]
+      );
+      card.appendChild(badge2);
+    }
+    // Open image-only modal on click
+    card.addEventListener("click", function () { openImageModalFor(item); });
+    imageGrid.appendChild(card);
+  });
+
+  // Append CTA card after last client card
+  var ctaCard = createElement(
+    "a",
+    {
+      class: "model-card-tile cta-card",
+      href: "https://discord.gg/hzwB24PfaG",
+      target: "_blank",
+      rel: "noopener noreferrer"
+    },
+    [
+      createElement("div", { class: "cta-plus" }, ["+"]),
+      createElement(
+        "div",
+        { class: "cta-text lang", dataset: { "lang-fr": "Commande ton decal via notre serveur Discord", "lang-en": "Order your decal via our Discord server" } },
+        ["Commande ton decal via notre serveur Discord"]
+      )
+    ]
+  );
+  imageGrid.appendChild(ctaCard);
+
   root.appendChild(searchWrapper);
+
+  // Titles for each category
+  var title3D = createElement(
+    "h2",
+    {
+      id: "title-3d",
+      class: "featured-title lang",
+      dataset: { "lang-fr": "Equipes", "lang-en": "Teams" }
+    },
+    ["Aperçu 3D"]
+  );
+  root.appendChild(title3D);
   root.appendChild(grid);
 
-  // Search filtering
+  var titleImages = createElement(
+    "h2",
+    {
+      id: "title-images",
+      class: "featured-title lang",
+      dataset: { "lang-fr": "Clients", "lang-en": "Customers" }
+    },
+    ["Galerie d'images"]
+  );
+  root.appendChild(titleImages);
+  root.appendChild(imageGrid);
+
+  // Search filtering for both datasets independently
   function normalize(str) {
     return (str || "").toString().toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, "");
   }
-  searchInput.addEventListener("input", function () {
-    var q = normalize(searchInput.value);
-    var children = Array.prototype.slice.call(grid.children);
+
+  function filterGrid(gridEl, dataset) {
+    var children = Array.prototype.slice.call(gridEl.children);
     children.forEach(function (card) {
-      var modelId = card.id;
-      var model = window.modelsData.find(function (m) { return m.id === modelId; });
-      if (!model) return;
-      var keywords = Array.isArray(model.keywords) ? model.keywords : [];
-      var hay = [model.title.fr, model.title.en, modelId]
+      var item = dataset.find(function (m) { return m.id === card.id; });
+      if (!item) return;
+      var keywords = Array.isArray(item.keywords) ? item.keywords : [];
+      var titleFr = item.title && item.title.fr ? item.title.fr : "";
+      var titleEn = item.title && item.title.en ? item.title.en : "";
+      var hay = [titleFr, titleEn, item.id]
         .concat(keywords)
         .map(normalize)
         .join(" ");
-      var match = q.length === 0 || hay.indexOf(q) !== -1;
+      var match = currentQuery.length === 0 || hay.indexOf(currentQuery) !== -1;
       card.style.display = match ? "flex" : "none";
     });
+  }
+
+  var currentQuery = "";
+  searchInput.addEventListener("input", function () {
+    currentQuery = normalize(searchInput.value);
+    filterGrid(grid, window.modelsData);
+    filterGrid(imageGrid, imagesData);
   });
 
-  // Build the stickers dropdown menu from config
+  // Build the stickers dropdown menu: only two categories (Equipe/Clients)
   var dropdown = document.querySelector(".dropdown .dropdown-content");
   if (dropdown) {
-    // Clear existing items
     while (dropdown.firstChild) dropdown.removeChild(dropdown.firstChild);
 
-    window.modelsData.forEach(function (model) {
+    var items = [
+      { id: "title-3d", fr: "Équipe", en: "Team" },
+      { id: "title-images", fr: "Clients", en: "Clients" }
+    ];
+
+    items.forEach(function (it) {
       var anchor = createElement(
         "a",
         {
-          href: "#" + model.id,
+          href: "#" + it.id,
           class: "lang",
-          dataset: { "lang-fr": model.title.fr, "lang-en": model.title.en }
+          dataset: { "lang-fr": it.fr, "lang-en": it.en }
         },
-        [model.title.fr]
+        [it.fr]
       );
       var li = createElement("li", null, [anchor]);
       dropdown.appendChild(li);
 
       anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        var el = document.getElementById(model.id);
+        var el = document.getElementById(it.id);
         if (el && typeof el.scrollIntoView === "function") {
-          el.scrollIntoView({ behavior: "smooth", block: "center" });
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-        openModalFor(model);
       });
     });
   }

@@ -43,7 +43,6 @@ window.modelsData = [
   },
   {
     id: "model-container-karmine-2025",
-    new: true,
     keywords: ["karmine", "kc", "reloaded", "2025", "karmine corp", "fennec"],
     sketchfab: {
       title: "FENNEC_KC",
@@ -166,7 +165,7 @@ window.modelsData = [
       allow: "fullscreen; xr-spatial-tracking",
       autostart: false
     },
-    title: { fr: "M8 World's 2024", en: "M8 World's 2024" },
+    title: { fr: "M8 World 2024", en: "M8 World 2024" },
     paragraphs: [
       {
         fr:
@@ -204,7 +203,7 @@ window.modelsData = [
       allow: "autoplay; fullscreen; xr-spatial-tracking",
       autostart: false
     },
-    title: { fr: "KC World's 2024 Red", en: "KC 2024 Red" },
+    title: { fr: "KC World 2024 Red", en: "KC World 2024 Red" },
     paragraphs: [
       {
         fr:
@@ -242,7 +241,7 @@ window.modelsData = [
       allow: "fullscreen; xr-spatial-tracking",
       autostart: false
     },
-    title: { fr: "KC World's 2024", en: "KC World's 2024" },
+    title: { fr: "KC World 2024", en: "KC World 2024" },
     paragraphs: [
       {
         fr:
