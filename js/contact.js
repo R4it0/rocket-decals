@@ -49,6 +49,22 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         });
     }
+
+    // Smooth scroll helper without changing URL
+    function wireSmoothScroll(selector, targetId) {
+        const link = document.querySelector(selector);
+        const target = document.getElementById(targetId);
+        if (link && target) {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+    }
+    wireSmoothScroll('a[href="#tuto-container"]', 'tuto-container');
+    wireSmoothScroll('a[href="#contact-container"]', 'contact-container');
+    wireSmoothScroll('a.logo-container', 'video-container');
+    wireSmoothScroll('a[href="#models-root"]', 'models-root');
 });
 
 
