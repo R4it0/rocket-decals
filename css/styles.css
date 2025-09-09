@@ -128,6 +128,23 @@
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
+/* Expand icon to hint that cards open a modal */
+.card-expand-icon, .card-expand-all {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 1;
+}
+
+.card-expand-svg { width: 18px; height: 18px; fill: #ffffff; }
+.card-expand-img { width: 18px; height: 18px; filter: invert(1); }
+
 .card-title { font-size: 28px; }
 
 .card-embed-wrapper {
@@ -172,7 +189,7 @@
 .badge-new {
     position: absolute;
     top: 8px;
-    right: 8px;
+    right: 42px;
     background: #e53935;
     color: #fff;
     font-size: 12px;
@@ -181,6 +198,31 @@
     border-radius: 999px;
     border: 1px solid rgba(255,255,255,0.5);
 }
+
+/* Download-all icon sits left of badge */
+.card-download-all {
+    position: absolute;
+    top: 10px;
+    right: 42px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+}
+.card-download-img { width: 18px; height: 18px; filter: invert(1); }
+
+.badge-new {
+    right: 42px;
+}
+
+/* When card has downloads, position New badge right after download icon */
+.has-download .badge-new {
+    right: 74px; /* sits between download (42px) and expand (10px) icons */
+}
+
 
 .modal-overlay {
     position: fixed;
@@ -1058,7 +1100,12 @@ video {
         padding: 12px;
         justify-content: center;
     }
-    .card-title { text-align: center; }
+    .card-expand-icon, .card-expand-all, .card-download-all {
+        top: 32px;
+    }
+    .badge-new {
+        top: 30px;
+    }
     .modal-content h2 {
         font-size: 18px;
         margin-bottom: 50px;

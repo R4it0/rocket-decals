@@ -31,6 +31,39 @@
     return el;
   }
 
+  // Small expand icon overlay for cards
+  function createExpandIcon() {
+    var img = createElement("img", { src: "img/arrow-expand-all.svg", alt: "", class: "card-expand-img", ariaHidden: "true" }, []);
+    var wrap = createElement("div", { class: "card-expand-all", ariaHidden: "true" }, [img]);
+    return wrap;
+  }
+
+  // Small download-all icon overlay for cards with downloads
+  function createDownloadIcon() {
+    var img = createElement("img", { src: "img/download.svg", alt: "", class: "card-download-img", ariaHidden: "true" }, []);
+    var wrap = createElement("div", { class: "card-download-all", ariaHidden: "true", title: "Télécharger tout" }, [img]);
+    return wrap;
+  }
+
+  function downloadAllForModel(model) {
+    try {
+      var files = Array.isArray(model.downloads) ? model.downloads : [];
+      if (!files.length) return;
+      files.forEach(function(d, idx) {
+        if (!d || !d.href) return;
+        var a = document.createElement('a');
+        a.href = d.href;
+        a.setAttribute('download', '');
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        // Stagger a bit to avoid some browsers ignoring rapid clicks
+        setTimeout(function(){ a.click(); document.body.removeChild(a); }, idx * 120);
+      });
+    } catch(e) {
+      // ignore
+    }
+  }
+
   // Modal builder
   var modalOverlay = createElement("div", { class: "modal-overlay", id: "model-modal" }, []);
   var modalContent = createElement("div", { class: "modal-content" }, []);
@@ -204,6 +237,13 @@
       ["Voir"]
     );
     var card = createElement("div", { class: "model-card-tile", id: model.id }, [cardTitle, cardEmbedWrap, openBtn]);
+    card.appendChild(createExpandIcon());
+    if (Array.isArray(model.downloads) && model.downloads.length > 0) {
+      var dl = createDownloadIcon();
+      dl.addEventListener('click', function(e){ e.stopPropagation(); e.preventDefault(); downloadAllForModel(model); });
+      card.appendChild(dl);
+      card.classList.add('has-download');
+    }
     if (model.new === true || model.isNew === true) {
       var badge = createElement(
         "span",
@@ -235,6 +275,7 @@
       [item.title && item.title.fr ? item.title.fr : ""]
     );
     var card = createElement("div", { class: "model-card-tile", id: item.id }, [cardTitle, imgWrap]);
+    card.appendChild(createExpandIcon());
     if (item.new === true || item.isNew === true) {
       var badge2 = createElement(
         "span",
