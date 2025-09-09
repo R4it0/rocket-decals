@@ -34,14 +34,14 @@
   // Small expand icon overlay for cards
   function createExpandIcon() {
     var img = createElement("img", { src: "img/arrow-expand-all.svg", alt: "", class: "card-expand-img", ariaHidden: "true" }, []);
-    var wrap = createElement("div", { class: "card-expand-all", ariaHidden: "true" }, [img]);
+    var wrap = createElement("div", { class: "card-expand-all", ariaHidden: "true", title: "Expand" }, [img]);
     return wrap;
   }
 
   // Small download-all icon overlay for cards with downloads
   function createDownloadIcon() {
     var img = createElement("img", { src: "img/download.svg", alt: "", class: "card-download-img", ariaHidden: "true" }, []);
-    var wrap = createElement("div", { class: "card-download-all", ariaHidden: "true", title: "Télécharger tout" }, [img]);
+    var wrap = createElement("div", { class: "card-download-all", ariaHidden: "true", title: "Download all" }, [img]);
     return wrap;
   }
 
